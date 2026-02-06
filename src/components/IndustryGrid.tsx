@@ -103,30 +103,30 @@ const IndustryGrid = () => {
             
             {/* Default State - Icon and Name */}
             <div className="absolute inset-0 bg-primary/60 group-hover:opacity-0 transition-opacity duration-500 flex flex-col items-center justify-center text-white">
-              <industry.icon size={32} className="mb-2 sm:mb-3 opacity-80 sm:w-10 sm:h-10" strokeWidth={1.5} />
-              <span className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-center px-2">
+              <industry.icon size={40} className="mb-2 sm:mb-3 opacity-80 sm:w-12 sm:h-12 lg:w-14 lg:h-14" strokeWidth={1.5} />
+              <span className="text-sm sm:text-base lg:text-lg font-semibold uppercase tracking-wider text-center px-2">
                 {industry.name}
               </span>
             </div>
 
             {/* Hover State - Description */}
-            <div className="absolute inset-0 bg-primary/90 opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-center p-4 sm:p-6 text-white overflow-y-auto">
+            <div className="absolute inset-0 bg-primary/90 opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-center p-4 sm:p-6 lg:p-8 text-white overflow-y-auto">
               <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
-                <industry.icon size={20} strokeWidth={1.5} className="sm:w-7 sm:h-7" />
-                <h4 className="text-sm sm:text-lg font-bold uppercase tracking-wider">
+                <industry.icon size={24} strokeWidth={1.5} className="sm:w-8 sm:h-8 lg:w-9 lg:h-9" />
+                <h4 className="text-base sm:text-xl lg:text-2xl font-bold uppercase tracking-wider">
                   {industry.name}
                 </h4>
               </div>
-              <ul className="space-y-1.5 sm:space-y-2">
+              <ul className="space-y-2 sm:space-y-3">
                 {industry.description.map((item, idx) => (
                   <motion.li
                     key={idx}
                     initial={{ opacity: 0, x: -10 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.3, delay: idx * 0.05 }}
-                    className="flex items-start gap-1.5 sm:gap-2 text-[10px] sm:text-xs leading-relaxed"
+                    className="flex items-start gap-2 sm:gap-3 text-xs sm:text-sm lg:text-base leading-relaxed"
                   >
-                    <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-[#00bcd4] mt-1 sm:mt-1.5 flex-shrink-0" />
+                    <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-[#00bcd4] mt-1.5 sm:mt-2 flex-shrink-0" />
                     <span className="text-white/90">{item}</span>
                   </motion.li>
                 ))}

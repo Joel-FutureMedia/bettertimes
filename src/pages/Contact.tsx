@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion';
-import { Check, ArrowRight, Loader2 } from 'lucide-react';
+import { Check, ArrowRight } from 'lucide-react';
 import { useState } from 'react';
-import { toast } from 'sonner';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Input } from '@/components/ui/input';
@@ -28,7 +27,6 @@ const Contact = () => {
     heardAbout: '',
     message: '',
   });
-  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -39,49 +37,10 @@ const Contact = () => {
     setFormData(prev => ({ ...prev, heardAbout: value }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
-
-    try {
-      // Send email using Gmail SMTP (via Vite plugin)
-      const response = await fetch('/api/send-email', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-
-      const data = await response.json();
-
-      if (!response.ok || !data.success) {
-        throw new Error(data.message || 'Failed to send email');
-      }
-
-      // Success feedback
-      toast.success('Message sent successfully!', {
-        description: 'We\'ll get back to you as soon as possible.',
-      });
-
-      // Reset form
-      setFormData({
-        firstName: '',
-        lastName: '',
-        company: '',
-        phone: '',
-        email: '',
-        heardAbout: '',
-        message: '',
-      });
-    } catch (error) {
-      console.error('Error sending email:', error);
-      toast.error('Failed to send message', {
-        description: 'Please try again later or contact us directly.',
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
+    console.log('Form submitted:', formData);
+    // Handle form submission here
   };
 
   return (
@@ -251,20 +210,10 @@ const Contact = () => {
 
                 <button
                   type="submit"
-                  disabled={isSubmitting}
-                  className="inline-flex items-center gap-2 bg-primary text-white px-8 py-4 rounded-full font-semibold hover:bg-primary/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="inline-flex items-center gap-2 bg-primary text-white px-8 py-4 rounded-full font-semibold hover:bg-primary/90 transition-colors"
                 >
-                  {isSubmitting ? (
-                    <>
-                      <Loader2 size={18} className="animate-spin" />
-                      SENDING...
-                    </>
-                  ) : (
-                    <>
-                      SEND MESSAGE
-                      <ArrowRight size={18} />
-                    </>
-                  )}
+                  SEND MESSAGE
+                  <ArrowRight size={18} />
                 </button>
               </motion.form>
             </div>

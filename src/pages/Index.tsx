@@ -6,8 +6,8 @@ import FeaturesAccordion from '@/components/FeaturesAccordion';
 import StepsSection from '@/components/StepsSection';
 import IndustryGrid from '@/components/IndustryGrid';
 import TrialCTA from '@/components/TrialCTA';
-import PaySpaceSection from '@/components/PaySpaceSection';
 import PricingSection from '@/components/PricingSection';
+import TestimonialsSection from '@/components/TestimonialsSection';
 import TimeBanditsSection from '@/components/TimeBanditsSection';
 import Footer from '@/components/Footer';
 
@@ -24,8 +24,8 @@ const Index = () => {
         <StepsSection />
         <IndustryGrid />
         <TrialCTA />
-        <PaySpaceSection />
         <PricingSection />
+        <TestimonialsSection />
       </main>
       <Footer />
     </div>
