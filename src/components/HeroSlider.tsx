@@ -118,6 +118,40 @@ const HeroSlider = () => {
                   Get a free trial
                 </a>
               </div>
+              
+              {/* Scrolling Logo Carousel - Inside Hero */}
+              <div className="mt-8 sm:mt-10 md:mt-12 overflow-hidden relative">
+                {/* Title */}
+                <h3 className="text-white text-lg sm:text-xl md:text-2xl font-semibold mb-4 sm:mb-6 text-center sm:text-left">
+                  Our Clients
+                </h3>
+                
+                <div className="relative">
+                  {/* Fade edges */}
+                  <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-24 bg-gradient-to-r from-black/20 via-transparent to-transparent z-10 pointer-events-none" />
+                  <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-24 bg-gradient-to-l from-black/20 via-transparent to-transparent z-10 pointer-events-none" />
+                  
+                  {/* Scrolling logos */}
+                  <div
+                    className="flex items-center gap-8 sm:gap-12 lg:gap-16 slider-animation"
+                    style={{ width: 'max-content' }}
+                  >
+                    {/* Duplicate logos for infinite scroll effect */}
+                    {[...partnerLogos, ...partnerLogos, ...partnerLogos, ...partnerLogos, ...partnerLogos, ...partnerLogos].map((logo, index) => (
+                      <div
+                        key={index}
+                        className="flex-shrink-0 h-12 sm:h-16 md:h-20 flex items-center justify-center px-4 sm:px-6"
+                      >
+                        <img
+                          src={logo.src}
+                          alt={logo.alt}
+                          className="h-full w-auto object-contain opacity-90 hover:opacity-100 transition-opacity duration-300"
+                        />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
             </motion.div>
           </div>
         </div>
@@ -147,35 +181,6 @@ const HeroSlider = () => {
           ))}
         </div>
       </section>
-
-      {/* Scrolling Logo Carousel - After Hero */}
-      <div className="bg-[#0a2540] py-6 sm:py-8 overflow-hidden">
-        <div className="relative">
-          {/* Fade edges */}
-          <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-24 bg-gradient-to-r from-[#0a2540] to-transparent z-10" />
-          <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-24 bg-gradient-to-l from-[#0a2540] to-transparent z-10" />
-          
-          {/* Scrolling logos */}
-          <div
-            className="flex items-center gap-8 sm:gap-12 lg:gap-16 slider-animation"
-            style={{ width: 'max-content' }}
-          >
-            {/* Duplicate logos for infinite scroll effect */}
-            {[...partnerLogos, ...partnerLogos, ...partnerLogos, ...partnerLogos, ...partnerLogos, ...partnerLogos].map((logo, index) => (
-              <div
-                key={index}
-                className="flex-shrink-0 h-12 sm:h-16 md:h-20 flex items-center justify-center px-4 sm:px-6"
-              >
-                <img
-                  src={logo.src}
-                  alt={logo.alt}
-                  className="h-full w-auto object-contain opacity-90 hover:opacity-100 transition-opacity duration-300"
-                />
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
     </>
   );
 };
