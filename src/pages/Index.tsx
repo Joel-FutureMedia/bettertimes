@@ -1,5 +1,6 @@
 import Header from '@/components/Header';
 import HeroSlider from '@/components/HeroSlider';
+import ClientLogosCarousel from '@/components/ClientLogosCarousel';
 import AboutSection from '@/components/AboutSection';
 import NoDataSection from '@/components/NoDataSection';
 import FeaturesAccordion from '@/components/FeaturesAccordion';
@@ -17,6 +18,7 @@ const Index = () => {
       <Header />
       <main>
         <HeroSlider />
+        <ClientLogosCarousel />
         <AboutSection />
         <NoDataSection />
         <TimeBanditsSection />
