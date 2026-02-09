@@ -12,7 +12,7 @@ const features = [
 
 const AboutSection = () => {
   return (
-    <section id="about" className="py-12 sm:py-16 lg:py-20 bg-white">
+    <section id="about" className="pt-2 sm:pt-3 lg:pt-4 pb-12 sm:pb-16 lg:pb-20 bg-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Top Section - Title, Description, and Features */}
         <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 mb-12 sm:mb-16">
