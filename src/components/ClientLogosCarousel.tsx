@@ -65,7 +65,7 @@ const ClientLogosCarousel = () => {
           {duplicatedLogos.map((logo, index) => (
             <div
               key={`${logo.alt}-${index}`}
-              className="flex-shrink-0 h-16 sm:h-20 md:h-24 lg:h-28 flex items-center justify-center px-3 md:px-4 lg:px-5 group"
+              className="flex-shrink-0 h-12 sm:h-14 md:h-16 lg:h-20 flex items-center justify-center px-2 md:px-3 lg:px-4 group"
             >
               <img
                 src={logo.src}
