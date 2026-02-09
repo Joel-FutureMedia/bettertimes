@@ -19,6 +19,14 @@ const Header = () => {
   const dropdownRef = useRef<HTMLDivElement>(null);
   const location = useLocation();
 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'smooth',
+    });
+  };
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
@@ -52,7 +60,7 @@ const Header = () => {
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="flex items-center">
+          <Link to="/" className="flex items-center" onClick={scrollToTop}>
             <img
               src={isScrolled ? logoDark : logoWhite}
               alt="Better Times"
@@ -101,6 +109,7 @@ const Header = () => {
               <Link
                 key={link.name}
                 to={link.href}
+                onClick={scrollToTop}
                 className={`font-semibold text-sm uppercase tracking-wide transition-all duration-300 relative group ${
                   isScrolled ? 'text-foreground hover:text-primary' : 'text-white/90 hover:text-white'
                 } ${link.isActive ? (isScrolled ? 'text-primary' : 'text-white') : ''}`}
@@ -116,6 +125,7 @@ const Header = () => {
             <Link
               to="/contact"
               className="btn-primary text-sm"
+              onClick={scrollToTop}
             >
               Contact us
             </Link>
@@ -178,7 +188,10 @@ const Header = () => {
                   key={link.name}
                   to={link.href}
                   className="font-semibold text-foreground hover:text-primary py-2"
-                  onClick={() => setIsMobileMenuOpen(false)}
+                  onClick={() => {
+                    setIsMobileMenuOpen(false);
+                    scrollToTop();
+                  }}
                 >
                   {link.name}
                 </Link>
@@ -186,7 +199,10 @@ const Header = () => {
               <Link
                 to="/contact"
                 className="btn-primary text-center mt-2"
-                onClick={() => setIsMobileMenuOpen(false)}
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  scrollToTop();
+                }}
               >
                 Contact us
               </Link>
